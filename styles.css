@@ -1,0 +1,245 @@
+/* === Reset & Base === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #e2e8f0;
+    background-color: #132547;
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* === Gradient Background Layer === */
+.bg-gradient {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(at 30% 30%, rgba(119, 121, 254, 0.4), transparent 50%),
+        radial-gradient(at 70% 70%, rgba(140, 232, 255, 0.4), transparent 50%);
+    z-index: -2;
+    animation: floatBg 12s ease-in-out infinite alternate;
+}
+
+@keyframes floatBg {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+
+    100% {
+        transform: scale(1.05) translate(-10px, -20px);
+    }
+}
+
+/* === Glass Effect === */
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    ;
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* === Navbar === */
+.navbar {
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 25px;
+    /* 控制 logo 不超出高度 */
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #8ad0ff;
+}
+
+/* === Section Base === */
+.section {
+    padding: 4rem 1.5rem;
+}
+
+.section .container {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+/* === About Section === */
+#about {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+#about::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('picture/background.png');
+    /* 替换成你的背景图路径 */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4;
+    /* 适度的透明度以避免抢镜 */
+    z-index: -1;
+}
+
+#about h1 {
+    font-size: 2rem;
+    color: #e2e8f0;
+    margin-bottom: 1rem;
+}
+
+#about p {
+    color: #dbeaff;
+    max-width: 700px;
+    font-size: 0.95rem;
+    text-indent: 2em;
+}
+
+/* === Services Grid === */
+#services h2 {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    color: #e2e8f0;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    position: relative;
+    padding: 1.5rem;
+    overflow: hidden;
+    border-radius: 16px;
+    backdrop-filter: blur(20px) saturate(160%);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #8ad0ff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    z-index: 0;
+    text-decoration: none;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('your-image.jpg');
+    /* 你可为每张卡片定义不同图 */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.6;
+    /* 背景图可见度 */
+    z-index: -2;
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    /* 遮罩层 */
+    z-index: -1;
+}
+
+.card:hover {
+    border-color: #8ad0ff;
+    box-shadow: 0 0 20px rgba(169, 208, 255, 0.5);
+}
+
+.card h3 {
+    color: #8ad0ff;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+}
+
+.card p {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+/* 背景图分别设置 */
+.bg-ai::before {
+    background-image: url('picture/domain-logo.png');
+}
+
+.bg-cloud::before {
+    background-image: url('picture/ip-logo.png');
+}
+
+.bg-security::before {
+    background-image: url('picture/route-logo.png');
+}
+
+.bg-bigdata::before {
+    background-image: url('picture/industry-logo.png');
+}
+
+.bg-iot::before {
+    background-image: url('picture/cert-logo.png');
+}
+
+.bg-blockchain::before {
+    background-image: url('picture/anti-phishing-logo.png');
+}
+
+.about-flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+}
+
+.about-text {
+    flex: 1 1 60%;
+}
+
+.about-image {
+    flex: 1 1 35%;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: 100px;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+}
